@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dice-Roller</title>
+
+    <style>
+        .container{
+            width: 350px;
+            display: block;
+            margin: 50px auto;
+            border: 2px solid brown;
+            border-radius: 10px;
+            background-color:blanchedalmond;
+        }
+        .dice-cover{
+            width: 250px;
+            display: block;
+            margin: 30px auto;
+        }
+        .heading{
+            text-align: center;
+            color:brown;
+        }
+        .roll-btn{
+            width: 200px;
+            font-size: large;
+            padding: 5px;
+            border: none;
+            display: block;
+            margin: 20px auto;
+            border-radius: 20px;
+            background-color: brown;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1 class="heading">Dice Roller</h1>
+        <img src="./img/dice-cover.png" alt="dice-cover" class="dice-cover" id="dice-cover">
+        <button type="button" class="roll-btn" onclick="rollDice()"> Roll the Dice </button>
+    </div>
+    
+<script>
+    function resetDice(){
+        const diceImg = document.getElementById('dice-cover')
+        diceImg.src = './img/dice-cover.png';
+    }
+
+    function rollDice(){
+        const min = 1;
+        const max = 6;
+
+        const randomNum = Math.round(Math.random()*(max-min))+min;
+
+        const diceImg = document.getElementById('dice-cover');
+
+        if(randomNum == 1){
+            diceImg.src = './img/dice-1.png';
+        }
+        else if (randomNum == 2){
+            diceImg.src = './img/dice-2.png';
+        }
+        else if (randomNum == 3){
+            diceImg.src = './img/dice-3.png';
+        }
+        else if (randomNum == 4){
+            diceImg.src = './img/dice-4.png';
+        }
+        else if (randomNum == 5){
+            diceImg.src = './img/dice-5.png';
+        }
+        else if (randomNum == 6){
+            diceImg.src = './img/dice-6.png';
+        }
+    setTimeout(resetDice, 3000);
+    }
+</script>
+</body>
+</html>
